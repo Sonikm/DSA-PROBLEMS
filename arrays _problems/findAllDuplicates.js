@@ -15,7 +15,9 @@
 var findDuplicates = function (nums) {
   if (nums.length === 0 || nums.length === 1) return [];
 
-  //* This solution takes TC = O(n2) SC = O(n)
+  let arr = [];
+
+  //* This solution takes TC = O(n2) SC = O(n)--> Still not a better solution but betther than the previous
 
   // for(let i=0; i<nums.length; i++){
   //     for(let j=i+1; j<nums.length; j++){
@@ -26,24 +28,29 @@ var findDuplicates = function (nums) {
   // }
 
   //* Let's more optimatize this
-  //* TC = O(n2) SC = O(n) --> Still not a better solution but betther than the previous
+  //* TC = O(n) SC = O(n)
 
-  let obj = {};
-  let arr = [];
+  // let obj = {};
+  // for (let key of nums) {
+  //   obj[key] = (obj[key] || 0) + 1;
+  // }
 
-  for (let key of nums) {
-    obj[key] = (obj[key] || 0) + 1;
+  // for (let key in obj) {
+  //   if (obj[key] === 2) {
+  //     arr.push(key);
+  //   }
+  // }
+
+  //* TC = O(n) SC = O(1)
+  for (let i = 0; i < nums.length; i++) {
+    let index = Math.abs(nums[i]) - 1;
+    if (nums[index] < 0) arr.push(Math.abs(nums[i])); // If the number at index is already negative, it means it's a duplicate
+    nums[index] = -nums[index]; // Mark the number at index as visited by making it negative
   }
 
-  console.log(obj);
-
-  for (let key in obj) {
-    if (obj[key] === 2) {
-      arr.push(key);
-    }
-  }
   return arr;
 };
+
 
 const nums = [4, 3, 2, 7, 8, 2, 3, 1];
 // const nums = [1, 1, 2];
