@@ -304,4 +304,155 @@ function pattern10(n) {
   }
 }
 
-pattern10(5);
+// pattern10(5);
+
+/*
+   1
+   0 1
+   1 0 1 
+   0 1 0 1
+   1 0 1 0 1
+
+    even index = 1
+    odd index = 0
+
+*/
+
+function pattern11(n) {
+  for (i = 0; i < n; i++) {
+    let start = "";
+
+    for (j = i; j >= 0; j--) {
+      if (j % 2 == 0) start += "1";
+      else start += "0";
+    }
+
+    console.log(start);
+  }
+}
+
+// pattern11(5);
+
+/*
+  1 _ _ _ _ _ _ 1
+  1 2 _ _ _ _ 2 1
+  1 2 3 _ _ 3 2 1
+  1 2 3 4 4 3 2 1
+
+  numbers, spaces, numbers
+    1        6      1
+    2        4      2
+    3        2      3
+    4        0      4
+
+*/
+
+function pattern12(n) {
+  for (i = 1; i <= n; i++) {
+    let pattern = "";
+
+    for (j = 1; j <= i; j++) {
+      pattern += `${j}`;
+    }
+    for (j = 1; j <= 2 * (n - i); j++) {
+      pattern += " ";
+    }
+    for (j = i; j >= 1; j--) {
+      pattern += `${j}`;
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern12(5);
+
+/*
+  1
+  2 3 
+  4 5 6
+  7 8 9 10
+  11 12 13 14 15
+
+*/
+
+function pattern13(n) {
+  let number = 0;
+
+  for (i = 1; i <= n; i++) {
+    let pattern = "";
+    for (j = 1; j <= i; j++) {
+      pattern += `${++number} `;
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern13(5);
+
+/*
+  A
+  A B
+  A B C
+  A B C D
+  A B C D E
+
+*/
+
+function pattern14(n) {
+  for (i = 1; i <= n; i++) {
+    let pattern = "";
+    for (j = 0; j < i; j++) {
+      pattern += String.fromCharCode(65 + j) + " ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern14(5);
+
+/*
+A B C D E
+A B C D
+A B C
+A B
+A
+
+*/
+
+function pattern15(n) {
+  for (i = 0; i < n; i++) {
+    let pattern = "";
+    for (j = 0; j < n - i; j++) {
+      pattern += String.fromCharCode(65 + j) + " ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern15(5);
+
+/*
+A 
+B B
+C C C
+D D D D
+E E E E E
+
+*/
+
+function pattern15(n) {
+  for (i = 0; i < n; i++) {
+    let pattern = "";
+    for (j = 0; j <= i; j++) {
+      pattern += String.fromCharCode(65 + i) + " ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+pattern15(5);
