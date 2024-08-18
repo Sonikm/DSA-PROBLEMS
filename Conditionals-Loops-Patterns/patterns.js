@@ -455,4 +455,104 @@ function pattern15(n) {
   }
 }
 
-pattern15(5);
+// pattern15(5);
+
+/*
+- - - A 
+- - A B A
+- A B C B A 
+A B C D C B A
+
+space, charactor, charactor
+
+*/
+
+function pattern16(n) {
+  for (i = 0; i < n; i++) {
+    let pattern = "";
+    for (j = 0; j < n - i - 1; j++) {
+      pattern += " ";
+    }
+    for (j = 0; j <= i; j++) {
+      pattern += String.fromCharCode(65 + j);
+    }
+    for (j = i; j > 0; j--) {
+      pattern += String.fromCharCode(65 + j - 1);
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern16(5);
+
+/*
+ E
+ D E
+ C D E
+ B C D E
+ A B C D E
+*/
+
+function pattern17(n) {
+  for (i = 0; i < n; i++) {
+    let pattern = "";
+
+    for (j = n - i - 1; j < n; j++) {
+      pattern += String.fromCharCode(65 + j) + " ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern17(5);
+
+/*
+ * * * * * * * * * *
+ * * * *     * * * *
+ * * *         * * *
+ * *             * *
+ *                 *
+ *                 *
+ * *             * *
+ * * *         * * *
+ * * * *     * * * *
+ * * * * * * * * * *
+ */
+
+function pattern17(n) {
+  for (i = 0; i < n; i++) {
+    let pattern = "";
+
+    for (j = i; j < n; j++) {
+      pattern += "* ";
+    }
+    for (j = 0; j < i * 2; j++) {
+      pattern += "  ";
+    }
+    for (j = i; j < n; j++) {
+      pattern += "* ";
+    }
+
+    console.log(pattern);
+  }
+  
+  for (i = n - 1; i >= 0; i--) {
+    let pattern = "";
+
+    for (j = i; j < n; j++) {
+      pattern += "* ";
+    }
+    for (j = 0; j < i * 2; j++) {
+      pattern += "  ";
+    }
+    for (j = i; j < n; j++) {
+      pattern += "* ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+pattern17(5);
