@@ -537,7 +537,7 @@ function pattern17(n) {
 
     console.log(pattern);
   }
-  
+
   for (i = n - 1; i >= 0; i--) {
     let pattern = "";
 
@@ -555,4 +555,113 @@ function pattern17(n) {
   }
 }
 
-pattern17(5);
+// pattern17(5);
+
+/*
+   *                 *
+   * *             * *
+   * * *         * * *
+   * * * *     * * * * 
+   * * * * * * * * * *
+   * * * *     * * * *
+   * * *         * * *
+   * *             * *
+   *                 *
+    
+    spaces, stars, spaces
+
+   */
+
+function pattern18(n) {
+  for (let i = 1; i <= 2 * n - 1; i++) {
+    let pattern = "";
+    let stars = i;
+    if (i > n) stars = 2 * n - i;
+    // stars
+    for (let j = 0; j < stars; j++) {
+      pattern += "* ";
+    }
+    // spaces
+    for (let j = 0; j < 2 * (n - stars); j++) {
+      pattern += "  ";
+    }
+    // stars
+    for (let j = 0; j < stars; j++) {
+      pattern += "* ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern18(5);
+
+/*
+   *                 *
+   * *             * *
+   * * *         * * *
+   * * * *     * * * * 
+   * * * * * * * * * *
+   * * * *     * * * *
+   * * *         * * *
+   * *             * *
+   *                 *
+    
+    spaces, stars, spaces
+
+   */
+
+function pattern19(n) {
+  for (let i = 1; i <= 2 * n - 1; i++) {
+    let pattern = "";
+    let stars = i;
+    if (i > n) stars = 2 * n - i;
+    // stars
+    for (let j = 0; j < stars; j++) {
+      pattern += "* ";
+    }
+    // spaces
+    for (let j = 0; j < 2 * (n - stars); j++) {
+      pattern += "  ";
+    }
+    // stars
+    for (let j = 0; j < stars; j++) {
+      pattern += "* ";
+    }
+
+    console.log(pattern);
+  }
+}
+
+// pattern19(5);
+
+/*
+   * * * *
+
+   *     *
+  
+   *     *
+  
+   * * * *
+    
+    spaces, stars, spaces
+
+   */
+
+function pattern20(n) {
+  for (let i = 1; i <= n; i++) {
+    let pattern = "";
+
+    for (let j = 1; j <= n; j++) {
+      if (i == 1 || i == n || j == 1 || j == n) {
+        pattern += "* ";
+      } else {
+        pattern += "  ";
+      }
+    }
+
+    console.log(`${pattern}\n`);
+  }
+}
+
+pattern20(5);
