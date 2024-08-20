@@ -521,9 +521,11 @@ function pattern17(n) {
  * * * * * * * * * *
  */
 
-function pattern17(n) {
+function pattern18(n) {
   for (i = 0; i < n; i++) {
     let pattern = "";
+
+    let stars = i;
 
     for (j = i; j < n; j++) {
       pattern += "* ";
@@ -548,45 +550,6 @@ function pattern17(n) {
       pattern += "  ";
     }
     for (j = i; j < n; j++) {
-      pattern += "* ";
-    }
-
-    console.log(pattern);
-  }
-}
-
-// pattern17(5);
-
-/*
-   *                 *
-   * *             * *
-   * * *         * * *
-   * * * *     * * * * 
-   * * * * * * * * * *
-   * * * *     * * * *
-   * * *         * * *
-   * *             * *
-   *                 *
-    
-    spaces, stars, spaces
-
-   */
-
-function pattern18(n) {
-  for (let i = 1; i <= 2 * n - 1; i++) {
-    let pattern = "";
-    let stars = i;
-    if (i > n) stars = 2 * n - i;
-    // stars
-    for (let j = 0; j < stars; j++) {
-      pattern += "* ";
-    }
-    // spaces
-    for (let j = 0; j < 2 * (n - stars); j++) {
-      pattern += "  ";
-    }
-    // stars
-    for (let j = 0; j < stars; j++) {
       pattern += "* ";
     }
 
@@ -664,4 +627,35 @@ function pattern20(n) {
   }
 }
 
-pattern20(5);
+// pattern20(5);
+
+/*
+
+    4 4 4 4 4 4 4
+    4 3 3 3 3 3 4
+    4 3 2 2 2 3 4
+    4 3 2 1 2 3 4
+    4 3 2 2 2 3 4
+    4 3 3 3 3 3 4
+    4 4 4 4 4 4 4   
+    
+
+   */
+
+function pattern21(n) {
+  for (let i = 0; i < 2 * n - 1; i++) {
+    let pattern = "";
+
+    for (let j = 0; j < 2 * n - 1; j++) {
+      let top = i;
+      let left = j;
+      let right = 2 * n - 2 - j;
+      let down = 2 * n - 2 - i;
+      pattern += n - Math.min(Math.min(top, down), Math.min(left, right));
+    }
+
+    console.log(pattern);
+  }
+}
+
+pattern21(4);
