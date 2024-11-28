@@ -11,28 +11,46 @@ Explanation: After sorting the array is: 1, 2, 3, 4, 5
 
 */
 
+// function selectionSort(arr) {
+//   let n = arr.length;
+
+//   console.log(arr);
+
+//   for (let i = 0; i < n - 1; i++) {
+//     let min_inx = i;
+
+//     for (let j = i + 1; j < n; j++) {
+//       if (arr[min_inx] > arr[j]) {
+//         min_inx = j;
+//       }
+//     }
+
+//     let temp = arr[i];
+//     arr[i] = arr[min_inx];
+//     arr[min_inx] = temp;
+//   }
+
+//   return arr;
+// }
+
+const arr = [13, 46, 24, 52, 20, 9]; // min_inx = 9
+const res = selectionSort(arr);
+console.log(res);
+
+//* RECUSIVE
 function selectionSort(arr) {
   let n = arr.length;
 
-  console.log(arr);
-
   for (let i = 0; i < n - 1; i++) {
-    let min_inx = i;
-
-    for (let j = i + 1; j < n; j++) {
-      if (arr[min_inx] > arr[j]) {
-        min_inx = j;
-      }
-    }
-
-    let temp = arr[i];
-    arr[i] = arr[min_inx];
-    arr[min_inx] = temp;
+    let ind = findMinElementIndex(arr, i, n);
+    [arr[i], arr[ind]] = [arr[ind], arr[i]];
   }
 
   return arr;
 }
 
-const arr = [13, 46, 24, 52, 20, 9]; // min_inx = 9
-const res = selectionSort(arr);
-console.log(res);
+function findMinElementIndex(arr, i, n) {
+  if (i >= n) return i;
+ let k = findMinElementIndex(arr, ++i, n);
+ return (arr[k] < arr[i]) ? k : i;
+}

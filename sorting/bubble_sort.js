@@ -14,35 +14,53 @@ Explanation: After sorting the array is: 1, 2, 3, 4, 5
 
 */
 
-function bubbleSort(arr) {
+// function bubbleSort(arr) {
+//   let n = arr.length;
+
+//   console.log(arr);
+
+//   for (let i = n - 1; i > 0; i--) {
+//     let didSort = 0;
+//     for (let j = 0; j <= i - 1; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         let temp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = temp;
+//         didSort = 1;
+//       }
+//     }
+
+//     if (didSort === 0) {
+//       break;
+//     }
+
+//     console.log("runs");
+//   }
+
+//   return arr;
+// }
+
+const arr = [13, 46, 24, 52, 20, 9];
+// const arr = [5,4,3,2,1];
+const res = bubbleSort(arr);
+console.log(res);
+
+//* USING RECURSION
+function bubbleSort(arr){
   let n = arr.length;
 
-  console.log(arr);
-
-  for (let i = n - 1; i > 0; i--) {
-    let didSort = 0;
-    for (let j = 0; j <= i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-        didSort = 1;
-      }
-    }
-
-    if (didSort === 0) {
-      break;
-    }
-
-    console.log("runs");
+  for(let i=0; i<n-1; i++){
+      sort(arr, 0, n-i-1)
   }
 
   return arr;
 }
 
-// const arr = [13, 46, 24, 52, 20, 9];
-const arr = [5,4,3,2,1];
-const res = bubbleSort(arr);
-console.log(res);
-
+function sort(arr, i, n){
+  if(i>=n) return;
+  if(arr[i] > arr[i+1]) {
+    [arr[i+1], arr[i]] = [arr[i], arr[i+1]];
+  }
+  sort(arr, ++i, n);
+}
 
